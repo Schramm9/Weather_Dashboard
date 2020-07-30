@@ -144,8 +144,8 @@ $(document).ready(function () {
         else if (response.current.uvi > 8 && response.current.uvi < 11)
           uvClass = "btn-danger";
         else if (response.current.uvi >= 11) uvClass = "violetBtn";
-
-        $("#uvIndex").text(response.current.uvi).addClass(uvClass);
+        $("#uvIndex").removeClass();
+        $("#uvIndex").text(response.current.uvi).addClass(`${uvClass} btn`);
 
         console.log(response.current.uvi);
 
@@ -172,6 +172,7 @@ $(document).ready(function () {
           response.daily[i];
           cardBodyEl.append(cardTitle, iconImg, cardTemp, cardHumidity);
           cardEl.append(cardBodyEl);
+          $("#forecast5D").empty();
           $("#forecast5D").append(cardEl);
 
           console.log(response.daily[i].dt); // Check correctness of cards of 5 day forecast
